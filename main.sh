@@ -1,6 +1,11 @@
 #!/bin/bash
 
-read -p "GitHub username: " username
+if [ -z "$1" ]; then
+    echo "Usage: $0 <GitHub username>"
+    exit 1
+fi
 
-response=$(curl -s https://api.github.com/users/$username)
+username=$1
+
+response=$(curl -s "https://api.github.com/users/$username")
 echo "$response" | jq -r 'to_entries[] | "\(.key): \(.value)"'

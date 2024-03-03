@@ -29,5 +29,5 @@ chmod +x guf-cli-sh.sh
 ## Usage
 
 ```
-./guf-cli-sh
+./guf-cli-sh.sh <GitHub username>
 ```

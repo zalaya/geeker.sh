@@ -2,4 +2,5 @@
 
 read -p "GitHub username: " username
 
-echo $(curl -s https://api.github.com/users/$username)
+response=$(curl -s https://api.github.com/users/$username)
+echo "$response" | jq -r 'to_entries[] | "\(.key): \(.value)"'
